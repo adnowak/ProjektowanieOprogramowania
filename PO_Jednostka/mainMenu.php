@@ -19,7 +19,7 @@
     <main>
         <a href="#"><img src="img/parametr.png" /></a>
         <a href="index.php?page=showAllCases"><img src="img/raport.svg" /></a>
-        <a href="#"><img src="img/dodanieTypu.png" /></a>
+        <a href="index.php?page=addACase"><img src="img/dodanieTypu.png" /></a>
     </main>
 </body>
 

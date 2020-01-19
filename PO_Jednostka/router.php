@@ -14,6 +14,10 @@ class Router
             {
                 $this->service->showAllCases();
             }
+            else if($_GET["page"] == "addACase")
+            {
+                $this->service->showAddACaseForm();
+            }
         }
         else if(array_key_exists('page', $_POST))
         {

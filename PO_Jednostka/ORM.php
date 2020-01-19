@@ -15,12 +15,13 @@
                 $isSent = $row["IsSent"] ?? '';
                 $sex = $row["Sex"] ?? '';
                 $birthDate = $row["BirthDate"] ?? '';
+                $birthPlace = $row["BirthPlace"] ?? '';
                 $address = $row["Address"] ?? '';
                 $citizenship = $row["Citizenship"] ?? '';
                 $ancestorsInfo = $row["AncestorsInfo"] ?? '';
                 $documentId = $row["IdDocument"] ?? '';
 
-                array_push($cases, new _Case($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $address, $citizenship, $ancestorsInfo, $documentId));
+                array_push($cases, new _Case($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId));
             } 
             return $cases;
         }

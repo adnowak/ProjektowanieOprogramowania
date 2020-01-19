@@ -11,6 +11,14 @@ $prefColor = '#16147d';
 
 ?>
 
+html {
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
 .formWrapper
 {
     width: 50%;
@@ -52,8 +60,6 @@ form {
     width: 100%;
     height: 60%;
     text-align: right;
-    display: grid;
-    grid-template-columns: 20% 80%;
 }
 
 .infobox {
@@ -70,8 +76,8 @@ input {
     margin: auto;
     margin-top: 0;
     margin-left: 5%;
-    width: 70%;
     padding: 2%;
+    width: 100%;
     border-bottom: 1px solid #c9c9f5;
     border-radius: 16px;
 }
@@ -109,15 +115,17 @@ a{
 
 }
 
-
-
-
 .back2 {
     position: absolute;
     left: 2px;
     top : 0.5%;
     padding: 0.7%;
 
+}
+
+.buttonA{
+    padding: 4%;
+    width: 100%;
 }
 
 table {
@@ -159,6 +167,6 @@ td {
 
 }
 
- tr:hover {
+tr:hover {
     background-color: #f3f3f3;
 }

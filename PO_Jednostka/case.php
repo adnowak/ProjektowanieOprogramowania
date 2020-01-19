@@ -9,6 +9,7 @@
         private $isSent;
         private $sex;
         private $birthDate;
+        private $birthPlace;
         private $address;
         private $citizenship;
         private $ancestorsInfo;
@@ -16,7 +17,7 @@
         private $documentId;
         private $document;
 
-        public function __construct($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $address, $citizenship, $ancestorsInfo, $documentId)
+        public function __construct($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId)
         {
             $this->idGlobal = $idGlobal;
             $this->idLocal = $idLocal;
@@ -26,6 +27,7 @@
             $this->isSent = $isSent;
             $this->sex = $sex;
             $this->birthDate = $birthDate;
+            $this->birthPlace = $birthPlace;
             $this->address = $address;
             $this->citizenship = $citizenship;
             $this->ancestorsInfo = $ancestorsInfo;
@@ -70,6 +72,11 @@
         public function getBirthDate()
         {
             return $this->birthDate;
+        }
+
+        public function getBirthPlace()
+        {
+            return $this->birthPlace;
         }
 
         public function getAddress()

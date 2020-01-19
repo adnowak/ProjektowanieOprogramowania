@@ -15,6 +15,7 @@
             Lista spraw
         </h1>
     </header>
+    <a class="back2" href="index.php?page=mainMenu">Powrót</a>
 </body>
 
 </html>
