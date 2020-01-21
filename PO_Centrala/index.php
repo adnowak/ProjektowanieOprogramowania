@@ -3,6 +3,6 @@
     include 'router.php'; 
     include 'controller.php';
     $service = new Service();
-    $router = new Router($service);
     new Controller($service);
+    new Router($service);
 ?>

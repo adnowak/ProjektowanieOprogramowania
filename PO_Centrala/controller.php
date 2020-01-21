@@ -7,20 +7,21 @@ class Controller
     public function __construct($service)
     {
         $this->service = $service;
-        $output = $service->getContentToDisplay();
-        if (empty($_GET) && empty($_POST)) 
+        
+        if(array_key_exists('page', $_GET))
         {
-            include "mainMenu.php";
+            if($_GET["page"] == "publicData")
+            {
+                $this->service->getPublicData();
+            }
         }
-        else if (empty($_POST))
+        else if(array_key_exists('page', $_POST))
         {
-            include $_GET["page"].".php";
+            if($_POST["page"] == "generateARaport")
+            {
+                $this->service->generateARaport();
+            }
         }
-        else 
-        {
-            include $_POST["page"].".php";
-        }
-        echo $output;
     }
 }
 ?>

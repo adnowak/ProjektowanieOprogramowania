@@ -7,21 +7,20 @@ class Router
     public function __construct($service)
     {
         $this->service = $service;
-        
-        if(array_key_exists('page', $_GET))
+        $output = $this->service->getContentToDisplay();
+        if (empty($_GET) && empty($_POST)) 
         {
-            if($_GET["page"] == "publicData")
-            {
-                $this->service->getPublicData();
-            }
+            include "mainMenu.php";
         }
-        else if(array_key_exists('page', $_POST))
+        else if (empty($_POST))
         {
-            if($_POST["page"] == "generateARaport")
-            {
-                $this->service->generateARaport();
-            }
+            include $_GET["page"].".php";
         }
+        else 
+        {
+            include $_POST["page"].".php";
+        }
+        echo $output;
     }
 }
 ?>

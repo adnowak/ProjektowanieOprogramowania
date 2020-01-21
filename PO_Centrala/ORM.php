@@ -8,7 +8,7 @@
             while($row = $readRecords->fetch_assoc()) {
                 $idP = $row["ID_P"] ?? '';
                 $liczbaSpraw = $row["liczba"] ?? '';
-                array_push($jednostki, new Placowka($idP, "nazwa", $liczbaSpraw));
+                array_push($jednostki, new Unit($idP, "nazwa", $liczbaSpraw));
             } 
 
             return $jednostki;
