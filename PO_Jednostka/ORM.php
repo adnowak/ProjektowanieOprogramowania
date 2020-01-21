@@ -13,7 +13,7 @@
                 $picture = $row["Picture"] ?? '';
                 $isDeleted = $row["IsDeleted"] ?? '';
                 $isSent = $row["IsSent"] ?? '';
-                $sex = $row["Sex"] ?? '';
+                $gender = $row["Sex"] ?? '';
                 $birthDate = $row["BirthDate"] ?? '';
                 $birthPlace = $row["BirthPlace"] ?? '';
                 $address = $row["Address"] ?? '';
@@ -21,7 +21,7 @@
                 $ancestorsInfo = $row["AncestorsInfo"] ?? '';
                 $documentId = $row["IdDocument"] ?? '';
 
-                array_push($cases, new _Case($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId));
+                array_push($cases, _Case::constructFromDatabase($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $gender, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId));
             } 
             return $cases;
         }

@@ -68,7 +68,7 @@ class Service
             <td>" .$_case->getPicture(). "</td>
             <td>" .$czyUsunieto. "</td>
             <td>" .$czyWyslano. "</td>
-            <td>" .$_case->getSex(). "</td>
+            <td>" .$_case->getGender(). "</td>
             <td>" .$_case->getBirthDate(). "</td>
             <td>" .$_case->getBirthPlace(). "</td>
             <td>" .$_case->getAddress(). "</td>
@@ -85,6 +85,74 @@ class Service
         $resultingHTML = $resultingHTML . "</table>" ;
 
         return $resultingHTML;
+    }
+
+    public function addACase()
+    {
+        print $this->getPostedCase();
+    }
+
+    private function getPostedCase(){
+        $err = false;
+        $specialErr = "";
+    
+        if (empty($_POST["content"])){
+            $err = true;
+        }else{
+              $content = $_POST["content"];
+        }
+    
+        if (empty($_POST["picture"])){
+            //$err = true;
+        }else{
+            $picture = $_POST["picture"];
+        }
+    
+        if (empty($_POST["gender"])){
+            $err = true;
+        }else{
+            $sex = $_POST["gender"];
+        }
+    
+        if (empty($_POST["birthDate"])){
+            $err = true;
+        }else{
+            $birthDate = $_POST["birthDate"];
+        }
+    
+        if (empty($_POST["birthPlace"])){
+            $err = true;
+        }else{
+            $birthPlace = $_POST["birthPlace"];
+        }
+
+        if (empty($_POST["address"])){
+            $err = true;
+        }else{
+            $address = $_POST["address"];
+        }
+
+        if (empty($_POST["citizenship"])){
+            $err = true;
+        }else{
+            $citizenship = $_POST["citizenship"];
+        }
+
+        if (empty($_POST["ancestorsInfo"])){
+            $err = true;
+        }else{
+            $ancestorsInfo = $_POST["ancestorsInfo"];
+        }
+
+        if (empty($_POST["documentId"])){
+            $err = true;
+        }else{
+            $documentId = $_POST["documentId"];
+        }
+
+        if (empty($specialErr) && !$err){
+            return _Case::constructFromUserInput($content, $picture, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId);
+        }else return "All values must be given" . $specialErr;
     }
   
     public function getContentToDisplay()

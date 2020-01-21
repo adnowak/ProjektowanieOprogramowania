@@ -23,17 +23,18 @@
                 <input id="male" type="radio" name="gender" value="male" style="width: 40%; float: left;"> <label for="male" style="width: 40%;">Mężczyzna</label><br/>
                 <input id="female" type="radio" name="gender" value="female" style="width: 40%;  float: left;"> <label for="female" style="width: 40%; clear: both;">Kobieta</label><br/>
             </div>
-            <input id="birthDate" type="date" placeholder="dataUr"/><br/>
-            <input id="birthPlace" type="text" placeholder="miejsce urodzenia"/><br/>
-            <input id="address" type="text" placeholder="adres"/><br/>
-            <input id="citizenship" type="text" placeholder="obywatelstwo"/><br/>
-            <input id="ancestorsData" type="text" placeholder="dane przodków"/><br/>
-            <input id="documentId" type="text" placeholder="dokument"/><br/>
+            <input id="birthDate" name="birthDate" type="date" placeholder="dataUr"/><br/>
+            <input id="birthPlace" name="birthPlace" type="text" placeholder="miejsce urodzenia"/><br/>
+            <input id="address" name="address" type="text" placeholder="adres"/><br/>
+            <input id="citizenship" name="citizenship" type="text" placeholder="obywatelstwo"/><br/>
+            <input id="ancestorsInfo" name="ancestorsInfo" type="text" placeholder="dane przodków"/><br/>
+            <input id="documentId" name="documentId" type="text" placeholder="dokument"/><br/>
         </div>
         <input type="hidden" name="page" value="addACase" />
         <div style="float: right; width: 20%; text-align: center;">
             <img src="img\zdjecie.png" style="max-width: 100%;" alt="Nic"/>
-            <input id="picture" type="hidden" placeholder="zdjecie"/><br/><br/><br/><br/>
+            <input id="picture" name="picture" type="hidden" placeholder="zdjecie"/><br/><br/><br/><br/>
+            <input type="hidden" name="page" value="addACase" />
             <a class="buttonA" href="index.php?page=addACase">Wybierz zdjęcie</a>
             <br/><br/><br/>
             <a class="buttonA" href="index.php?page=addACase">Kasuj wszystko</a><br/><br/>

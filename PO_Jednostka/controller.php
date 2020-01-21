@@ -7,20 +7,27 @@ class Controller
     public function __construct($service)
     {
         $this->service = $service;
-        $output = $this->service->getContentToDisplay();
-        if (empty($_GET) && empty($_POST)) 
+
+        if(array_key_exists('page', $_GET))
         {
-            include "mainMenu.php";
+            if($_GET["page"] == "showAllCases")
+            {
+                $this->service->showAllCases();
+            }
+            else if($_GET["page"] == "addACase")
+            {
+                $this->service->showAddACaseForm();
+            }
         }
-        else if (empty($_POST))
+        else if(array_key_exists('page', $_POST))
         {
-            include $_GET["page"].".php";
+            if($_POST["page"] == "addACase")
+            {
+                print_r($_POST);
+                echo "<br/>";
+                $this->service->addACase();
+            }
         }
-        else 
-        {
-            include $_POST["page"].".php";
-        }
-        echo $output;
     }
 }
 ?>

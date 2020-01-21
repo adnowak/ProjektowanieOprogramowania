@@ -7,7 +7,7 @@
         private $picture;
         private $isDeleted;
         private $isSent;
-        private $sex;
+        private $gender;
         private $birthDate;
         private $birthPlace;
         private $address;
@@ -17,21 +17,49 @@
         private $documentId;
         private $document;
 
-        public function __construct($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId)
+        public function __construct()
         {
-            $this->idGlobal = $idGlobal;
-            $this->idLocal = $idLocal;
-            $this->content = $content;
-            $this->picture = $picture;
-            $this->isDeleted = $isDeleted;
-            $this->isSent = $isSent;
-            $this->sex = $sex;
-            $this->birthDate = $birthDate;
-            $this->birthPlace = $birthPlace;
-            $this->address = $address;
-            $this->citizenship = $citizenship;
-            $this->ancestorsInfo = $ancestorsInfo;
-            $this->documentId = $documentId;
+            
+        }
+
+        public static function constructFromDatabase($idGlobal, $idLocal, $content, $picture, $isDeleted, $isSent, $gender, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId)
+        {
+            $instance = new self();
+            $instance->idGlobal = $idGlobal;
+            $instance->idLocal = $idLocal;
+            $instance->content = $content;
+            $instance->picture = $picture;
+            $instance->isDeleted = $isDeleted;
+            $instance->isSent = $isSent;
+            $instance->gender = $gender;
+            $instance->birthDate = $birthDate;
+            $instance->birthPlace = $birthPlace;
+            $instance->address = $address;
+            $instance->citizenship = $citizenship;
+            $instance->ancestorsInfo = $ancestorsInfo;
+            $instance->documentId = $documentId;
+
+            return $instance;
+        }
+
+        public static function constructFromUserInput($content, $picture, $gender, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId)
+        {
+            $instance = new self();
+            $instance->idGlobal = null;
+            $instance->idLocal = null;
+            $instance->content = $content;
+            $instance->picture = $picture;
+            $instance->isDeleted = false;
+            $instance->isSent = false;
+            $instance->gender = $gender;
+            $instance->birthDate = $birthDate;
+            $instance->birthPlace = $birthPlace;
+            $instance->address = $address;
+            $instance->citizenship = $citizenship;
+            $instance->ancestorsInfo = $ancestorsInfo;
+            $instance->documentId = $documentId;
+
+            return $instance;
         }
 
         public function getIdGlobal()
@@ -64,9 +92,9 @@
             return $this->isSent;
         }
 
-        public function getSex()
+        public function getGender()
         {
-            return $this->sex;
+            return $this->gender;
         }
 
         public function getBirthDate()
