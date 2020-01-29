@@ -2,6 +2,8 @@
 include "case.php";
 include "ORM.php";
 include "databaseHandler.php";
+include "document.php";
+include "documentType.php";
 class Service
 {
     private $databaseHandler;
@@ -20,10 +22,10 @@ class Service
     public function showAllCases()
     {
         $cases = ORM::readAllCasesFromDatabase($this->databaseHandler);
-        $this->contentToDisplay = $this->prepareCasesTable($cases);
+        $this->contentToDisplay = $this->prepareCasesForm($cases);
     }
 
-    private function prepareCasesTable($cases){
+    private function prepareCasesForm($cases){
         $resultingHTML = "";
       
         $resultingHTML = $resultingHTML. "<table>" ;
@@ -89,21 +91,48 @@ class Service
 
     public function addACase()
     {
-        print $this->getPostedCase();
+        $result = $this->getPostedCase();
+        if($result != "All values must be given")
+        {
+            $documentExists = false;
+            $maximalId = 1;
+            $readDocuments = ORM::readAllDocumentsFromDatabase($this->databaseHandler);
+            foreach ($readDocuments as &$document)
+            {
+                if($document->equals($result->getDocument()))
+                {
+                    $documentExists = true;
+                    $result->setDocument($document);
+                }
+
+                if($document->getId()>$maximalId)
+                {
+                    $maximalId = $document->getId();
+                }
+            }
+            if(!$documentExists)
+            {
+                $result->getDocument()->setId($maximalId + 1);
+                echo ORM::writeADocumentIntoDatabase($this->databaseHandler, $result->getDocument());
+            }
+            echo ORM::writeACaseIntoDatabase($this->databaseHandler, $result);
+        }
     }
 
-    private function getPostedCase(){
+    private function getPostedCase()
+    {
         $err = false;
         $specialErr = "";
     
         if (empty($_POST["content"])){
             $err = true;
         }else{
-              $content = $_POST["content"];
+            $content = $_POST["content"];
         }
     
         if (empty($_POST["picture"])){
-            //$err = true;
+            $err = true;
+            $picture = null;
         }else{
             $picture = $_POST["picture"];
         }
@@ -144,15 +173,38 @@ class Service
             $ancestorsInfo = $_POST["ancestorsInfo"];
         }
 
-        if (empty($_POST["documentId"])){
+        if (empty($_POST["documentNumber"])){
             $err = true;
         }else{
-            $documentId = $_POST["documentId"];
+            $documentNumber = $_POST["documentNumber"];
+        }
+
+        if (empty($_POST["name"])){
+            $err = true;
+        }else{
+            $name = $_POST["name"];
+        }
+
+        if (empty($_POST["surname"])){
+            $err = true;
+        }else{
+            $surname = $_POST["surname"];
+        }
+
+        if (empty($_POST["documentTypeId"])){
+            $err = true;
+        }else{
+            $documentTypeId = $_POST["documentTypeId"];
         }
 
         if (empty($specialErr) && !$err){
-            return _Case::constructFromUserInput($content, $picture, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId);
-        }else return "All values must be given" . $specialErr;
+            $this->contentToDisplay = "Dodano nową sprawę";
+            return _Case::constructFromUserInput($content, $picture, $sex, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, new Document("1", $documentNumber, $name, $surname, new DocumentType($documentTypeId)));
+        }
+        else {
+            $this->contentToDisplay = "Nie udało się dodać sprawy,<br/> wszystkie pola muszą być wypełnione";
+            return "All values must be given";
+        }        
     }
   
     public function getContentToDisplay()

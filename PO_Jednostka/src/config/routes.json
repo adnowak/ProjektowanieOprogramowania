@@ -1,0 +1,8 @@
+[
+  {
+    "/": ["MainController", "indexView"],
+    "/showcases": ["DisplayCasesController", "displayCases"],
+    "/addcase/{param}": ["AddCaseController", "addCase"],
+    "/savecase/{param}":["AddCaseController", "saveCase"]
+  }
+]

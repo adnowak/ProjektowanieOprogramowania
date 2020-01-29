@@ -23,8 +23,6 @@ class Controller
         {
             if($_POST["page"] == "addACase")
             {
-                print_r($_POST);
-                echo "<br/>";
                 $this->service->addACase();
             }
         }

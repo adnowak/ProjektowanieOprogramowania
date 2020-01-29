@@ -20,23 +20,30 @@
         <div style="float: left; width: 70%">
             <input id="content" type="text" placeholder="treść" name="content"/><br/>
             <div style="width: 20%; margin-left: 5%; padding: 2%;">
-                <input id="male" type="radio" name="gender" value="male" style="width: 40%; float: left;"> <label for="male" style="width: 40%;">Mężczyzna</label><br/>
-                <input id="female" type="radio" name="gender" value="female" style="width: 40%;  float: left;"> <label for="female" style="width: 40%; clear: both;">Kobieta</label><br/>
+                <input id="male" type="radio" name="gender" value="Mężczyzna" style="width: 40%; float: left;"> <label for="male" style="width: 40%;">Mężczyzna</label><br/>
+                <input id="female" type="radio" name="gender" value="Kobieta" style="width: 40%;  float: left;"> <label for="female" style="width: 40%; clear: both;">Kobieta</label><br/>
             </div>
             <input id="birthDate" name="birthDate" type="date" placeholder="dataUr"/><br/>
             <input id="birthPlace" name="birthPlace" type="text" placeholder="miejsce urodzenia"/><br/>
             <input id="address" name="address" type="text" placeholder="adres"/><br/>
             <input id="citizenship" name="citizenship" type="text" placeholder="obywatelstwo"/><br/>
             <input id="ancestorsInfo" name="ancestorsInfo" type="text" placeholder="dane przodków"/><br/>
-            <input id="documentId" name="documentId" type="text" placeholder="dokument"/><br/>
+            <input id="documentNumber" name="documentNumber" type="text" placeholder="numer dokumentu identyfikacyjnego"/><br/>
+            <input id="name" name="name" type="text" placeholder="imię"/><br/>
+            <input id="surname" name="surname" type="text" placeholder="nazwisko"/><br/>
+            <p class="selectLabel">Document type:</p>
+            <select name="documentTypeId">
+                <option value="1">Dowód osobisty</option>
+                <option value="2">Paszport</option>
+                <option value="3">Prawo jazdy</option>
+            </select>
         </div>
         <input type="hidden" name="page" value="addACase" />
         <div style="float: right; width: 20%; text-align: center;">
             <img src="img\zdjecie.png" style="max-width: 100%;" alt="Nic"/>
-            <input id="picture" name="picture" type="hidden" placeholder="zdjecie"/><br/><br/><br/><br/>
+            <input type="file" id="picture" name="picture" value="Wybierz Zdjęcie" ><br/><br/><br/><br/>
             <input type="hidden" name="page" value="addACase" />
-            <a class="buttonA" href="index.php?page=addACase">Wybierz zdjęcie</a>
-            <br/><br/><br/>
+            <br/>
             <a class="buttonA" href="index.php?page=addACase">Kasuj wszystko</a><br/><br/>
             <br/><br/>
             <input type="submit" value="Dodaj" style="margin: 0;"/><br/>

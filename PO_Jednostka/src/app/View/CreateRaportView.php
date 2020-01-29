@@ -1,25 +1,22 @@
 <?php 
 require_once 'Base/View.php';
 
-class GenerateRaportView extends View
+class CreateRaportView extends View
 {
-    private $_template = 'generateRaport.html.php';
+    private $_template = 'createRaport.html.php';
     
     public function __construct(...$args) 
     {
+        // whatever the fuck you want
+        //print_r($args);
         $this->units = $args[0];
+        $this->intervals = $args[1];
         $this->toHtml();
-
     }
 
     private function toHtml() 
     {
         require_once TEMPLATES . $this->_template;
-    }
-
-    private function currentDateTime()
-    {
-        return date("d/m/Y H:i");
     }
 
     private function availableIntervals()
@@ -29,18 +26,18 @@ class GenerateRaportView extends View
         }
     }
 
-    private function createTable(){
-        
+    private function populateTable()
+    {
         $i = 1;
         foreach($this->units as $unit){
             echo
             '<tr>
                 <td>'. $i . '</td>
                 <td>'. $unit["Name"] . '</td>
-                <td>' . $unit['cases'] . '</td>
+                <td><input type="checkbox" name="unit[]" value="' . $unit['Id'] . '"></td>
             </tr>';
             $i++;
         }
     }
-
+    
 }

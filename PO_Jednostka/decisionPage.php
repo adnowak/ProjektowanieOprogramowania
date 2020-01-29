@@ -15,6 +15,7 @@
             Wydaj decyzję
         </h1>
     </header>
+    <a class="back2" href="index.php?page=showAllCases">Powrót</a>
     <div style="clear: both;"></div>
     <main>
         

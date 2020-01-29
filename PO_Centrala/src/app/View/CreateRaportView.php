@@ -7,8 +7,6 @@ class CreateRaportView extends View
     
     public function __construct(...$args) 
     {
-        // whatever the fuck you want
-        //print_r($args);
         $this->units = $args[0];
         $this->intervals = $args[1];
         $this->toHtml();
