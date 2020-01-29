@@ -16,6 +16,9 @@ class AddCaseController extends Controller
 
     public function saveCase(Request $request)
     {
+        $this->documents = $this->modelEntity('Document')->getAllEntities();
+        $this->documentTypes = $this->modelEntity('DocumentType')->getAllEntities();
+
         $err = false;
         if (empty($request->post("content"))){
             $err = true;
