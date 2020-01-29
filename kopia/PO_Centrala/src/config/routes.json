@@ -1,0 +1,8 @@
+[
+  {
+    "/": ["MainController", "indexView"],
+    "/createraport": ["RaportController", "createRaportView"],
+    "/decisions/" : ["DecisionController" , "initialize"],
+    "/displayraport/{param}": ["RaportController", "generateRaportView"]
+  }
+]
