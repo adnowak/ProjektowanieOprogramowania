@@ -8,7 +8,7 @@ class MainController extends Controller{
    * @return void
    */
   public function indexView(Request $request) {
-    $this->view('MainPage', 'CHUJ', 'CIPKA', 'WARIAT');
+    $this->view('MainPage');
   }
 
 }

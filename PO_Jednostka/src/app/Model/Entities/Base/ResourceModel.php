@@ -29,14 +29,12 @@ abstract class ResourceModel
     {
         if (isset($this->data[self::ID])) {
             $sql = "UPDATE {$this->_table} SET {$this->getUpdateParams()}";
-            print_r($this->generateParams(true));
             $this->dbModel->query($sql, $this->generateParams(true));
             return;
         }
         
         $sql = "INSERT INTO {$this->_table} ({$this->createValues()}) VALUES ({$this->createValues(true)})";
         $this->dbModel->query($sql, $this->generateParams());
-        print_r($sql);
         return;
     }
 

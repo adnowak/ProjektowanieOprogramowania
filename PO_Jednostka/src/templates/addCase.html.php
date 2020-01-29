@@ -35,7 +35,7 @@
             <input id="name" name="name" type="text" placeholder="imię"/><br/>
             <input id="surname" name="surname" type="text" placeholder="nazwisko"/><br/>
             <p class="selectLabel">Document type:</p>
-            <select name="documentTypeId">
+            <select name="Id">
                 <?=$this->getDocumentTypes()?>
             </select>
         </div>

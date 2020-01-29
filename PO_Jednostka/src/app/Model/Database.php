@@ -66,19 +66,14 @@ class Database {
    */
   public function query($query, $params = NULL) {
     $this->sth = $this->db->prepare($query);
-    print_r($params);
     if(isSet($params)) {
       foreach($params as $param => $value) {
         $this->sth->bindValue($param, $value);
-
       }
     }
     $this->sth->execute();
     $this->sth->closeCursor();
-    print_r($this->sth->errorInfo());
-
     $this->sth = NULL;
-
   }
 
   /**
