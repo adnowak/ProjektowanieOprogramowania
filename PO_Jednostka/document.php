@@ -1,37 +1,63 @@
 <?php
-    class Dokument
+    class Document
     {
-        private $numer;
-        private $imie;
-        private $nazwisko;
-        private $typDokumentu;
+        private $id;
+        private $number;
+        private $name;
+        private $surname;
+        private $documentType;
 
-        public function __construct($numer, $imie, $nazwisko, $typDokumentu)
+        public function __construct($id, $number, $name, $surname, $documentType)
         {
-            $this->numer = $numer;
-            $this->imie = $imie;
-            $this->nazwisko = $nazwisko;
-            $this->typDokumentu = $typDokumentu;
+            $this->id = $id;
+            $this->number = $number;
+            $this->name = $name;
+            $this->surname = $surname;
+            $this->documentType = $documentType;
         }
 
-        public function getNumer()
+        public function getId()
         {
-            return $this->numer;
+            return $this->id;
         }
 
-        public function getImie()
+        public function getNumber()
         {
-            return $this->numer;
+            return $this->number;
         }
 
-        public function getNazwisko()
+        public function getName()
         {
-            return $this->numer;
+            return $this->name;
         }
 
-        public function getTypDokumentu()
+        public function getSurname()
         {
-            return $this->numer;
+            return $this->surname;
+        }
+
+        public function getDocumentType()
+        {
+            return $this->documentType;
+        }
+
+        public function setId($newId)
+        {
+            $this->id = $newId;
+        }
+
+        public function equals($otherDocument)
+        {
+            if($otherDocument->getNumber()==$this->number){
+                if($otherDocument->getName()==$this->name){
+                    if($otherDocument->getSurname()==$this->surname){
+                        if($otherDocument->getDocumentType()->getId()==$this->documentType){
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 ?>

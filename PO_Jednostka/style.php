@@ -1,14 +1,5 @@
 <?php
-/*** set the content type header ***/
-/*** Without this header, it wont work ***/
-header("Content-type: text/css");
-
-
-$font_family = 'Arial, Helvetica, sans-serif';
-$font_size = '0.7em';
-$border = '1px solid';
-$prefColor = '#16147d';
-
+include "globalStyle.php";
 ?>
 
 html {
@@ -82,6 +73,21 @@ input {
     border-radius: 16px;
 }
 
+.selectLabel{
+    text-align: center;
+}
+
+select {
+    font-size: 1em;
+    margin: auto;
+    margin-top: 0;
+    margin-left: 5%;
+    padding: 2%;
+    width: 70%;
+    border-bottom: 1px solid #c9c9f5;
+    border-radius: 16px;
+}
+
 
 .submit{
     background-color:  <?=$prefColor?>;
@@ -129,8 +135,19 @@ a{
 }
 
 table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
     width: 100%;
-
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 .error{
@@ -145,26 +162,6 @@ table {
     top: 5%;
     overflow: scroll;
     height: 95%;
-}
-
- tr {
-    background-color: white;
-}
-
-th {
-    background-color:  <?=$prefColor?>;
-    color: white;
-    border-radius: 16px;
-    border: none;
-    padding: 9px;
-}
-
-td {
-    padding: 9px;
-    border-bottom: 1px solid #c9c9f5;
-    border-radius: 16px;
-    overflow-wrap: break-word;
-
 }
 
 tr:hover {

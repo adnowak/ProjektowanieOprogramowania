@@ -35,7 +35,7 @@ class DatabaseHandler
     {
         $this->establishConnection();
         if ($this->connection->query($writingQuery) === TRUE) {
-            return "New record created successfully";
+            return "";
         } else {
             return "Error: " . $writingQuery . "<br/>" . $this->connection->error;
         }

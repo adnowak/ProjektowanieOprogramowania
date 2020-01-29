@@ -42,7 +42,7 @@
             return $instance;
         }
 
-        public static function constructFromUserInput($content, $picture, $gender, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $documentId)
+        public static function constructFromUserInput($content, $picture, $gender, $birthDate, $birthPlace, $address, $citizenship, $ancestorsInfo, $document)
         {
             $instance = new self();
             $instance->idGlobal = null;
@@ -57,7 +57,8 @@
             $instance->address = $address;
             $instance->citizenship = $citizenship;
             $instance->ancestorsInfo = $ancestorsInfo;
-            $instance->documentId = $documentId;
+            $instance->document = $document;
+            $instance->documentId = "1";
 
             return $instance;
         }
@@ -125,6 +126,16 @@
         public function getDocumentId()
         {
             return $this->documentId;
+        }
+
+        public function getDocument()
+        {
+            return $this->document;
+        }
+
+        public function setDocument($newDocument)
+        {
+            $this->document = $newDocument;
         }
     }
 ?>

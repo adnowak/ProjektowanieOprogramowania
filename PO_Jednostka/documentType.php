@@ -1,16 +1,30 @@
 <?php
-    class TypDokumentu
+    class DocumentType
     {
-        private $nazwa;
+        private $id;
+        private $name;
 
-        public function __construct($nazwa)
+        public function __construct($id)
         {
-            $this->nazwa = $nazwa;
+            $this->id = $id;
         }
 
-        public function getNazwa()
+        public static function constructFromDatebase($id, $name)
         {
-            return $this->nazwa;
+            $instance = new self($id);
+            $instance->name = $name;
+
+            return $instance;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+
+        public function getId()
+        {
+            return $this->id;
         }
     }
 ?>
