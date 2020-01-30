@@ -18,6 +18,15 @@ class GenerateRaportView extends View
 
     }
 
+    private function sumOfCases()
+    {
+        $sum = 0;
+        foreach($this->units as $unit){
+            $sum += $unit['cases'];
+        }
+        return $sum;
+    }
+
     private function toHtml() 
     {
         require_once TEMPLATES . $this->_template;

@@ -11,6 +11,7 @@
 
     <div id="raportTitle"> Raport </div>
     <div id="timestamp"> <?= $this->currentDateTime() ?> </div>
+    <div style="text-align: center">Łączna ilość spraw: <?= $this->sumOfCases() ?></div>
     <br>
     </div>
     <table>
