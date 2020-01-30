@@ -58,7 +58,7 @@ form {
     font-size: 1em;
     width: 100%;
     height: 60%;
-    text-align: right;
+    text-align: center;
 }
 
 .infobox {

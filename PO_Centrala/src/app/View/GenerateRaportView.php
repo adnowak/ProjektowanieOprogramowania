@@ -8,7 +8,13 @@ class GenerateRaportView extends View
     public function __construct(...$args) 
     {
         $this->units = $args[0];
-        $this->toHtml();
+        $this->err = $args[1];
+        if($this->err){
+            echo 'Nie wybrano zadnych jednostek';
+            echo '<meta http-equiv="Refresh" content="3; url=/createraport" />';
+        }
+        else
+            $this->toHtml();
 
     }
 

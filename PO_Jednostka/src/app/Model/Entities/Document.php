@@ -21,6 +21,21 @@ class Document extends Entity
         $this->getData(self::ID);
     }
 
+    public function getNumber()
+    {
+        return $this->getData(self::NUMBER);
+    }
+
+    public function getName()
+    {
+        return $this->getData(self::NAME);
+    }
+
+    public function getSurname()
+    {
+        return $this->getData(self::SURNAME);
+    }
+
     public function setId(int $id)
     {
         $this->setData(self::ID, $id);
@@ -33,9 +48,22 @@ class Document extends Entity
         return $this;
     }
 
-    public function getName()
+    public function setNumber(string $number)
     {
-        return $this->getData(self::NAME);
+        $this->setData(self::NUMBER, $number);
+        return $this;
+    }
+
+    public function setSurname(string $surname)
+    {
+        $this->setData(self::SURNAME, $surname);
+        return $this;
+    }
+
+    public function setIdDocumentType(string $idDocumentType)
+    {
+        $this->setData(self::IDDOCUMENTTYPE, $idDocumentType);
+        return $this;
     }
 
     public function getIdDocumentType()

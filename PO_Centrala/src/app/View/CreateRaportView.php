@@ -20,7 +20,7 @@ class CreateRaportView extends View
     private function availableIntervals()
     {
         foreach($this->intervals as $interval){
-            echo '<option value="' . $interval['Id'] . '">' . $interval['IntervalName'] . '</option>';
+            echo '<option value="' . $interval['UnixTime'] . '">' . $interval['IntervalName'] . '</option>';
         }
     }
 

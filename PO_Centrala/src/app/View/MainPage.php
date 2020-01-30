@@ -7,8 +7,6 @@ class MainPage extends View
     
     public function __construct(...$args) 
     {
-        // whatever the fuck you want
-        // print_r($args);
         $this->assignData();
         $this->toHtml();
     }

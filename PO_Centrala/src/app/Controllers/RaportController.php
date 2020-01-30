@@ -11,37 +11,31 @@ class RaportController extends Controller
 
     public function generateRaportView(Request $request)
     {
+        $this->units = [];
+
         $interval = $request->get('interval');
         $unitIds = $request->get('unit');
+        $err = false;
+        if (empty($request->get("unit"))){
+            $err = true;
+            $view = $this->view('GenerateRaportView', $this->units, $err);
+            return;
+        }
 
-        $this->units = [];
         foreach($unitIds as $unitId){
             $unit = $this->modelEntity('Unit')->getById($unitId)->getData();
             array_push($this->units, $unit);
         }
-        //print_r($this->units);
 
         $cases = $this->modelEntity('CaseEntity')->getAllEntities();
         $packages = $this->modelEntity('Package')->getAllEntities();
-        //$noCases = [];
-       // foreach($unitIds as $unitId){
-       //     array_push($noCases, $this->modelEntity('Unit')->casesInInterval($unitId, $interval, $cases, $packages));
-       // }
         foreach($this->units as &$unit){
-            $unit['cases'] = $this->modelEntity('Unit')->casesInInterval($unitId, $interval, $cases, $packages);
-        }
-        // print_r($this->units);
-        //$this->units['dupa'] = 5;
-        
+            $unit['cases'] = $this->modelEntity('Unit')->casesInInterval($unit['Id'], $interval, $cases, $packages);
+        }        
 
 
-        $view = $this->view('GenerateRaportView', $this->units);
+        $view = $this->view('GenerateRaportView', $this->units, $err);
 
-
-        //$units = $this->modelEntity('Unit')->getAllEntities();
-        //$intervals = $this->modelEntity('TimeInterval')->getAllEntities();
-        //$view = $this->view('RaportView', $units, $intervals);
-        // print_r($units);
     }
 
 }

@@ -6,7 +6,7 @@
     <meta name="description" content="Menu page">
     <meta name="keywords" content="html, web, programming, menu, root, main, control, room, control_room">
     <link rel="stylesheet" href="style.php" type="text/css" />
-    <link rel="stylesheet" href="style.php" type="text/css" />
+    <link rel="stylesheet" href="<?= $this->asset('css/main.php') ?>" type="text/css" />
     <link rel="stylesheet" href="<?= $this->asset('css/style.php') ?>" type="text/css" />
 
     <title>Wydanie decyzji</title>
@@ -19,7 +19,7 @@
         </h1>
     </header>
     <a class="back2" href="/">Powrót</a>
-    <div style="float: left; width:70%">
+    <div style="float: left; width:70%; text-align:center">
         Identyfikator globalny: <?= $this->case['IdGlobal'] ? $this->case['IdGlobal'] : "brak" ?>
         <br>
         Identyfikator lokalny: <?= $this->case['IdLocal'] ? $this->case['IdLocal'] : "brak" ?>
@@ -32,14 +32,19 @@
         <br>
         <form id="decisionForm" method='POST' action="/savedecision/">
         <br>
-        <select id="select" name="decisionType" style="width: 300px; text-align:center" form="decisionForm">
+        Decyzja:
+        <br>
+        <select id="select" name="decisionType" style="text-align:center; display:inline" form="decisionForm">
             <!-- add available time intervals -->
             <?=$this->decisionTypes() ?>
         </select>
-        <input id="content" type="text" placeholder="treść" name="content" /><br/>
+        <br>
+        <br>
+        <input id="content" type="text" placeholder="Uzasadnienie" name="content" /><br/>
         <input type="hidden" name="worker" value="<?=$this->worker['Id']?>">
         <input type="hidden" name="caseid" value="<?=$this->case['Id']?>">
-        <input type="submit" value="Dodaj"/><br/>
+        <br>
+        <input style="width: 30%" type="submit" value="Dodaj"/><br/>
 
         </form>
 
