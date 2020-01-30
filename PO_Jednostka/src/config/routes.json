@@ -2,6 +2,7 @@
     "/": ["MainController", "indexView"],
     "/showcases": ["DisplayCasesController", "displayCases"],
     "/addcase/{param}": ["AddCaseController", "addCase"],
-    "/decision/{param}": ["", ""],
-    "/savecase/{param}": ["AddCaseController", "saveCase"]
+    "/decision/{param}": ["DecisionController", "makeDecision"],
+    "/savecase/{param}": ["AddCaseController", "saveCase"],
+    "/savedecision/": ["DecisionController", "saveDecision"]
 }]

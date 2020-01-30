@@ -35,7 +35,7 @@ class DisplayCasesView extends View
                 <td>' . $case['Citizenship'] . '</td>
                 <td>' . $case['AncestorsInfo'] . '</td>
                 <td>' . $case['IdDocument'] . '</td>
-                <td><a style="text-decoration: none; color: black; background-color: white;" href="decision/'.$case['Id'].'>√</a></td>
+                <td><a style="text-decoration: none; color: black; background-color: white;" href="decision/'.$case['Id'].'">√</a></td>
                 <td><a style="text-decoration: none; color: white; background-color: green;" href="#">∆</a></td>
                 <td><a style="text-decoration: none; color: white; background-color: red;" href="#">X</a></td>
                 

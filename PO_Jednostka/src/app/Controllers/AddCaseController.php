@@ -114,7 +114,6 @@ class AddCaseController extends Controller
             ->setIdDocument(1)
             ->setIdWorker(1)
             ->save();
-
         }
     }
 }

@@ -34,6 +34,30 @@ class Decision extends Entity
         return $this;
     }
 
+    public function setDate($date)
+    {
+        $this->setData(self::DATE, $date);
+        return $this;
+    }
+
+    public function setReasoning($reasoning)
+    {
+        $this->setData(self::REASONING, $reasoning);
+        return $this;
+    }
+
+    public function setDecisionMaker($decisionmaker)
+    {
+        $this->setData(self::DECISIONMAKER, $decisionmaker);
+        return $this;
+    }
+
+    public function setIdCase($idCase)
+    {
+        $this->setData(self::IDCASE, $idCase);
+        return $this;
+    }
+
     public function getDecisionType()
     {
         return $this->getData(self::DECISIONTYPE);

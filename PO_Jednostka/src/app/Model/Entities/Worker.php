@@ -1,15 +1,15 @@
 <?php 
 require_once 'Base/Entity.php';
 
-class Document extends Entity
+class Worker extends Entity
 {
     const ID = 'Id';
-    const NUMBER = 'Number';
     const NAME = 'Name';
     const SURNAME = 'Surname';
-    const IDDOCUMENTTYPE = 'IdDocumentType';
+    const PESEL = 'Pesel';
+    const ISMANAGER = 'IsManager';
 
-    protected $_table = 'Documents';
+    protected $_table = 'Workers';
 
     public function __construct() 
     {
@@ -36,10 +36,5 @@ class Document extends Entity
     public function getName()
     {
         return $this->getData(self::NAME);
-    }
-
-    public function getIdDocumentType()
-    {
-        return $this->getData(self::IDDOCUMENTTYPE);
     }
 }

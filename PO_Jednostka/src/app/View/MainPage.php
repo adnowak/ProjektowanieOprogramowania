@@ -7,15 +7,7 @@ class MainPage extends View
     
     public function __construct(...$args) 
     {
-        // whatever the fuck you want
-        // print_r($args);
-        $this->assignData();
         $this->toHtml();
-    }
-
-    private function assignData() 
-    {
-        $this->articles = ['matka zaszla w ciaze szok', 'wyswietlenia: 50'];
     }
 
     private function toHtml() 

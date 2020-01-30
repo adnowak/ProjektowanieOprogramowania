@@ -16,7 +16,6 @@
     </header>
     <div style="clear: both;"></div>
     <main>
-        <a href="#"><img src="<?=$this->asset('img/parametr.png')?>" /></a>
         <a href="/showcases"><img src="<?=$this->asset('img/raport.svg')?>" /></a>
         <a href="/addcase/"><img src="<?=$this->asset('img/dodanieTypu.png')?>" /></a>
     </main>
